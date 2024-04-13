@@ -1,0 +1,311 @@
+[gd_scene load_steps=9 format=3 uid="uid://caf3yk8y60oe1"]
+
+[ext_resource type="Script" path="res://scripts/setting_anti_aliasing.gd" id="1_4pngk"]
+[ext_resource type="Script" path="res://scripts/settings.gd" id="1_4yadj"]
+
+[sub_resource type="GDScript" id="GDScript_yfyo3"]
+script/source = "extends Control
+
+@onready var menu = $Menu
+@onready var settings = $Settings
+
+
+func _on_settings_pressed():
+	menu.visible = false
+	settings.visible = true
+
+
+func _on_close_settings_pressed():
+	menu.visible = true
+	settings.visible = false
+"
+
+[sub_resource type="GDScript" id="GDScript_dfrfe"]
+script/source = "extends Button
+
+var main_scene = preload(\"res://scenes/main.tscn\")
+
+
+func _on_pressed():
+	get_tree().change_scene_to_packed(main_scene)
+"
+
+[sub_resource type="GDScript" id="GDScript_mdcnd"]
+script/source = "extends Button
+
+
+func _on_pressed():
+	get_tree().quit()
+"
+
+[sub_resource type="GDScript" id="GDScript_qtfwk"]
+script/source = "extends HSlider
+
+
+func _on_value_changed(value_to):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(\"Master\"), linear_to_db(value_to))
+"
+
+[sub_resource type="GDScript" id="GDScript_scsod"]
+script/source = "extends Button
+
+var getting_input: bool = false
+
+
+func _on_pressed():
+	getting_input = true
+	text = \"Press key...\"
+
+
+func _input(event: InputEvent):
+	if Input.is_action_just_pressed(\"your_action\"):
+		print(\"Hello, World!\")
+	if getting_input and not event is InputEventMouse:
+		set_button(event)
+
+
+func set_button(button: InputEvent) -> void:
+	getting_input = false
+	text = \"Change input\"
+	InputMap.action_erase_events(\"your_action\")
+	InputMap.action_add_event(\"your_action\", button)
+"
+
+[sub_resource type="GDScript" id="GDScript_o53ab"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_yfyo3")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="RichTextLabel" parent="Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -376.0
+offset_top = -259.0
+offset_right = 376.0
+offset_bottom = -151.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 76
+text = "Your beautiful game"
+
+[node name="Buttons" type="VBoxContainer" parent="Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.5
+offset_top = -79.0
+offset_right = 122.5
+offset_bottom = 205.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="Menu/Buttons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 61
+text = "Start"
+script = SubResource("GDScript_dfrfe")
+
+[node name="Settings" type="Button" parent="Menu/Buttons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 61
+text = "Settings"
+
+[node name="Quit" type="Button" parent="Menu/Buttons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 61
+text = "Quit"
+script = SubResource("GDScript_mdcnd")
+
+[node name="Settings" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4yadj")
+
+[node name="SettingsMenu" type="TabContainer" parent="Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Video" type="TabBar" parent="Settings/SettingsMenu"]
+layout_mode = 2
+
+[node name="SettingsList" type="VBoxContainer" parent="Settings/SettingsMenu/Video"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AntiAliasing" type="HBoxContainer" parent="Settings/SettingsMenu/Video/SettingsList"]
+layout_mode = 2
+script = ExtResource("1_4pngk")
+
+[node name="Label" type="Label" parent="Settings/SettingsMenu/Video/SettingsList/AntiAliasing"]
+layout_mode = 2
+text = "Anti-Aliasing"
+
+[node name="Separator" type="VSeparator" parent="Settings/SettingsMenu/Video/SettingsList/AntiAliasing"]
+layout_mode = 2
+
+[node name="MSAA2D" type="OptionButton" parent="Settings/SettingsMenu/Video/SettingsList/AntiAliasing"]
+layout_mode = 2
+item_count = 4
+selected = 0
+popup/item_0/text = "Disabled"
+popup/item_0/id = 0
+popup/item_1/text = "2x"
+popup/item_1/id = 1
+popup/item_2/text = "4x"
+popup/item_2/id = 2
+popup/item_3/text = "8x"
+popup/item_3/id = 3
+
+[node name="MSAA3D" type="OptionButton" parent="Settings/SettingsMenu/Video/SettingsList/AntiAliasing"]
+layout_mode = 2
+item_count = 4
+selected = 0
+popup/item_0/text = "Disabled"
+popup/item_0/id = 0
+popup/item_1/text = "2x"
+popup/item_1/id = 1
+popup/item_2/text = "4x"
+popup/item_2/id = 2
+popup/item_3/text = "8x"
+popup/item_3/id = 3
+
+[node name="FXAA" type="CheckBox" parent="Settings/SettingsMenu/Video/SettingsList/AntiAliasing"]
+layout_mode = 2
+text = "FXAA"
+
+[node name="TAA" type="CheckBox" parent="Settings/SettingsMenu/Video/SettingsList/AntiAliasing"]
+layout_mode = 2
+text = "TAA"
+
+[node name="Button" type="Button" parent="Settings/SettingsMenu/Video/SettingsList/AntiAliasing"]
+layout_mode = 2
+
+[node name="Audio" type="TabBar" parent="Settings/SettingsMenu"]
+visible = false
+layout_mode = 2
+
+[node name="SettingsList" type="VBoxContainer" parent="Settings/SettingsMenu/Audio"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Volume" type="HBoxContainer" parent="Settings/SettingsMenu/Audio/SettingsList"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Settings/SettingsMenu/Audio/SettingsList/Volume"]
+layout_mode = 2
+text = "Anti-Aliasing"
+
+[node name="Separator" type="VSeparator" parent="Settings/SettingsMenu/Audio/SettingsList/Volume"]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="Settings/SettingsMenu/Audio/SettingsList/Volume"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.0
+page = 0.1
+script = SubResource("GDScript_qtfwk")
+
+[node name="Gameplay" type="TabBar" parent="Settings/SettingsMenu"]
+visible = false
+layout_mode = 2
+
+[node name="Controls" type="TabBar" parent="Settings/SettingsMenu"]
+visible = false
+layout_mode = 2
+
+[node name="SettingsList" type="VBoxContainer" parent="Settings/SettingsMenu/Controls"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Jump" type="HBoxContainer" parent="Settings/SettingsMenu/Controls/SettingsList"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Settings/SettingsMenu/Controls/SettingsList/Jump"]
+layout_mode = 2
+
+[node name="Separator" type="VSeparator" parent="Settings/SettingsMenu/Controls/SettingsList/Jump"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Settings/SettingsMenu/Controls/SettingsList/Jump"]
+layout_mode = 2
+text = "Change input"
+script = SubResource("GDScript_scsod")
+
+[node name="CloseSettings" type="Button" parent="Settings"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -115.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "Close settings"
+script = SubResource("GDScript_o53ab")
+
+[connection signal="pressed" from="Menu/Buttons/Start" to="Menu/Buttons/Start" method="_on_pressed"]
+[connection signal="pressed" from="Menu/Buttons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Menu/Buttons/Quit" to="Menu/Buttons/Quit" method="_on_pressed"]
+[connection signal="item_selected" from="Settings/SettingsMenu/Video/SettingsList/AntiAliasing/MSAA2D" to="Settings/SettingsMenu/Video/SettingsList/AntiAliasing" method="_on_msaa_2d_item_selected"]
+[connection signal="item_selected" from="Settings/SettingsMenu/Video/SettingsList/AntiAliasing/MSAA3D" to="Settings/SettingsMenu/Video/SettingsList/AntiAliasing" method="_on_msaa_3d_item_selected"]
+[connection signal="toggled" from="Settings/SettingsMenu/Video/SettingsList/AntiAliasing/FXAA" to="Settings/SettingsMenu/Video/SettingsList/AntiAliasing" method="_on_fxaa_toggled"]
+[connection signal="toggled" from="Settings/SettingsMenu/Video/SettingsList/AntiAliasing/TAA" to="Settings/SettingsMenu/Video/SettingsList/AntiAliasing" method="_on_taa_toggled"]
+[connection signal="pressed" from="Settings/SettingsMenu/Video/SettingsList/AntiAliasing/Button" to="Menu/Buttons/Start" method="_on_pressed"]
+[connection signal="value_changed" from="Settings/SettingsMenu/Audio/SettingsList/Volume/HSlider" to="Settings/SettingsMenu/Audio/SettingsList/Volume/HSlider" method="_on_value_changed"]
+[connection signal="pressed" from="Settings/SettingsMenu/Controls/SettingsList/Jump/Button" to="Settings/SettingsMenu/Controls/SettingsList/Jump/Button" method="_on_pressed"]
+[connection signal="pressed" from="Settings/CloseSettings" to="." method="_on_close_settings_pressed"]
+[connection signal="pressed" from="Settings/CloseSettings" to="Settings" method="_on_close_settings_pressed"]
