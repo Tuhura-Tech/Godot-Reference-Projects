@@ -3,33 +3,33 @@ extends Control
 const UI_HEART_EMPTY = preload("res://Assets/frames/ui_heart_empty.png")
 const UI_HEART_FULL = preload("res://Assets/frames/ui_heart_full.png")
 const UI_HEART_HALF = preload("res://Assets/frames/ui_heart_half.png")
+@onready var points_label = $pointContainer/pointsLabel
 
-@onready var health_cont = $health_container
-var hearts : Array
+@onready var health_cont = $healthContainer
 var maxHealth : int = 0
 
-#believe it for NOT. this is the best way to design this without overengineering or creating a large amount of other scripts/nodes
-func changedHealth(newHealth : int):
-	for img in hearts:
-		img.queue_free()
-		
-	for full in newHealth/2:
-		addHeart(UI_HEART_FULL)
-		
-	if newHealth%2:
-		addHeart(UI_HEART_HALF)
-		
-	if newHealth < maxHealth:
-		for dif in (maxHealth - newHealth)/2:
-			addHeart(UI_HEART_EMPTY)
-	else:	
+func changed_health(newHealth : int):
+	if newHealth > maxHealth:
 		maxHealth = newHealth
 		
+	if(maxHealth/2 > health_cont.get_child_count()):
+		for h in (maxHealth/2) - health_cont.get_child_count():
+			add_heart()
+	
+	for i in health_cont.get_child_count():
+		if (i * 2) + 1 < newHealth:
+			health_cont.get_child(i).texture = UI_HEART_FULL
+		elif (i * 2) < newHealth:
+			health_cont.get_child(i).texture = UI_HEART_HALF
+		else:
+			health_cont.get_child(i).texture = UI_HEART_EMPTY
 		
 
-func addHeart(image):
+func add_heart():
 	var img : TextureRect = TextureRect.new()
 	img.expand_mode = TextureRect.EXPAND_FIT_WIDTH
-	img.texture = image
 	health_cont.add_child(img)
-	hearts.append(img)
+	
+func add_point():
+	points_label.text = str(int(points_label.text) + 1)
+
