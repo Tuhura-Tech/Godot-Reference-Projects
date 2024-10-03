@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://dj2mn8jw2s45l"]
+
+[ext_resource type="Script" path="res://Scenes/weapon.gd" id="1_boe1w"]
+[ext_resource type="Texture2D" uid="uid://ct2yklbdfmd2y" path="res://Assets/frames/weapon_duel_sword.png" id="1_mtx81"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c28q2"]
+size = Vector2(9, 30)
+
+[sub_resource type="Animation" id="Animation_rug0c"]
+resource_name = "Attack"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(20, 0), Vector2(30, 0), Vector2(20, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lgrn5"]
+_data = {
+"Attack": SubResource("Animation_rug0c")
+}
+
+[node name="weapon" type="Node2D"]
+script = ExtResource("1_boe1w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(20, 0)
+rotation = 1.5708
+texture = ExtResource("1_mtx81")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_c28q2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lgrn5")
+}
