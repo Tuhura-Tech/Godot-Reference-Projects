@@ -4,7 +4,7 @@ const UI_HEART_EMPTY = preload("res://Assets/frames/ui_heart_empty.png")
 const UI_HEART_FULL = preload("res://Assets/frames/ui_heart_full.png")
 const UI_HEART_HALF = preload("res://Assets/frames/ui_heart_half.png")
 
-@onready var health_cont = $healthCont
+@onready var health_cont = $health_container
 var hearts : Array
 var maxHealth : int = 0
 

@@ -5,9 +5,11 @@ signal on_health_changed(new_health : int)
 @onready var damage_timer = $damageTimer
 var health : int
 var can_take_damage : bool = true
+@onready var ui: Control = $"../../CanvasLayer/UI"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	on_health_changed.connect(ui.changedHealth)
 	health = max_health
 	emit_signal("on_health_changed", health)
 

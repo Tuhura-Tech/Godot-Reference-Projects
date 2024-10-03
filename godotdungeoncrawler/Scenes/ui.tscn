@@ -35,9 +35,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_d6yus")
 
-[node name="healthCont" type="HBoxContainer" parent="."]
+[node name="health_container" type="HBoxContainer" parent="."]
 layout_mode = 1
-offset_right = 84.0
+offset_right = 80.0
 offset_bottom = 40.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
