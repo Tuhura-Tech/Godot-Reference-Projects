@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cri335ggfuacw" path="res://Assets/frames/doc_run_anim_f2.png" id="7_5txbr"]
 [ext_resource type="Texture2D" uid="uid://d0oswfhy2mq60" path="res://Assets/frames/doc_run_anim_f3.png" id="8_3rrrr"]
 [ext_resource type="PackedScene" uid="uid://dj2mn8jw2s45l" path="res://Scenes/weapon.tscn" id="10_ynobv"]
-[ext_resource type="Script" path="res://Scenes/hitbox.gd" id="11_q761d"]
+[ext_resource type="Script" path="res://Scripts/hitbox.gd" id="11_q761d"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f5w5x"]
 animations = [{

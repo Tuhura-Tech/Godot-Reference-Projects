@@ -4,11 +4,16 @@ const UI_HEART_EMPTY = preload("res://Assets/frames/ui_heart_empty.png")
 const UI_HEART_FULL = preload("res://Assets/frames/ui_heart_full.png")
 const UI_HEART_HALF = preload("res://Assets/frames/ui_heart_half.png")
 @onready var points_label = $pointContainer/pointsLabel
+@onready var died_label = $diedLabel
+@onready var health_cont: HBoxContainer = $healthContainer
 
-@onready var health_cont = $healthContainer
 var maxHealth : int = 0
 
 func changed_health(newHealth : int):
+	
+	if(newHealth == 0):
+		died_label.visible = true
+	
 	if newHealth > maxHealth:
 		maxHealth = newHealth
 		
@@ -32,4 +37,3 @@ func add_heart():
 	
 func add_point():
 	points_label.text = str(int(points_label.text) + 1)
-

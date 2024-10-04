@@ -16,8 +16,6 @@ func _ready():
 	health = max_health
 	emit_signal("on_health_changed", health)
 	
-	take_damage()
-	
 
 func _on_body_entered(body):
 	if body.is_in_group("enemy"):
@@ -34,7 +32,7 @@ func take_damage():
 		emit_signal("on_health_changed", health)
 		
 		if health <= 0:
-			print("you died!")
+			get_tree().paused = true
 		else:
 			can_take_damage = false
 			

@@ -12,7 +12,6 @@ func _physics_process(delta):
 	else:
 		animated_sprite_2d.play("idle")
 	
-	#May seem strange, but I want the flip to maintain if the player is going directly up or down
 	if(velocity.x < 0):
 		animated_sprite_2d.flip_h = true
 	elif(velocity.x > 0):

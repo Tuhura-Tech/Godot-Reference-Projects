@@ -16,4 +16,3 @@ func _process(delta):
 			if body.is_in_group("enemy"):
 				body.queue_free()
 			
-

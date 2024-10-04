@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dj2mn8jw2s45l"]
 
-[ext_resource type="Script" path="res://Scenes/weapon.gd" id="1_boe1w"]
+[ext_resource type="Script" path="res://Scripts/weapon.gd" id="1_boe1w"]
 [ext_resource type="Texture2D" uid="uid://ct2yklbdfmd2y" path="res://Assets/frames/weapon_duel_sword.png" id="1_mtx81"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c28q2"]
