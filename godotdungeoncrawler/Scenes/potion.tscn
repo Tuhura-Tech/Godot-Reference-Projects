@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmbushxnrt3kc"]
+
+[ext_resource type="Texture2D" uid="uid://cov3u5lk02san" path="res://Assets/frames/flask_big_red.png" id="1_tclqw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpwsf"]
+size = Vector2(14, 13)
+
+[node name="potion" type="StaticBody2D" groups=["health"]]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["health"]]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_vpwsf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["health"]]
+texture = ExtResource("1_tclqw")

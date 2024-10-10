@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://d11rof3d7tgfy"]
+
+[ext_resource type="Texture2D" uid="uid://bapc075rlgtop" path="res://Assets/frames/coin_anim_f0.png" id="1_vam54"]
+[ext_resource type="Texture2D" uid="uid://dilgb3b88ggcc" path="res://Assets/frames/coin_anim_f1.png" id="2_xscc8"]
+[ext_resource type="Texture2D" uid="uid://bj6exiwowqyiw" path="res://Assets/frames/coin_anim_f2.png" id="3_fabn1"]
+[ext_resource type="Texture2D" uid="uid://jynni1467bdn" path="res://Assets/frames/coin_anim_f3.png" id="4_r07n2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y547w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vam54")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xscc8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fabn1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_r07n2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t4dh2"]
+radius = 4.0
+
+[node name="Coin" type="StaticBody2D" groups=["coin"]]
+scale = Vector2(2, 2)
+collision_layer = 2
+collision_mask = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["coin"]]
+sprite_frames = SubResource("SpriteFrames_y547w")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["coin"]]
+shape = SubResource("CircleShape2D_t4dh2")
