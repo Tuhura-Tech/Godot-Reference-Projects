@@ -1,0 +1,7 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://c8up3nqog5xjc"]
+
+[ext_resource type="Texture2D" uid="uid://cgnuqawnho63g" path="res://kenney_racing-pack/PNG/Tiles/Sand road/road_sand86.png" id="1_xqkec"]
+
+[resource]
+texture = ExtResource("1_xqkec")
+modulate_color = Color(0.703808, 0.703808, 0.703808, 1)
