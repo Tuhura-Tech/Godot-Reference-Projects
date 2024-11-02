@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=3 uid="uid://2srue4nbpm41"]
+
+[ext_resource type="PackedScene" uid="uid://du0qnhuy7rx5b" path="res://Scenes/level_button.tscn" id="1_6ru6p"]
+[ext_resource type="Texture2D" uid="uid://cejr1dv24iep2" path="res://bg.png" id="1_kasvw"]
+[ext_resource type="Texture2D" uid="uid://xbsshi2jdh7f" path="res://kenney_racing-pack/PNG/Motorcycles/motorcycle_red.png" id="2_ieu10"]
+
+[node name="TrackSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -520.0
+offset_top = -416.0
+offset_right = 1554.0
+offset_bottom = 960.0
+texture = ExtResource("1_kasvw")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 448.0
+offset_right = 92.0
+offset_bottom = 548.0
+rotation = -0.593761
+scale = Vector2(2.14386, 2.14386)
+texture = ExtResource("2_ieu10")
+
+[node name="LevelButton3" parent="." instance=ExtResource("1_6ru6p")]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 280.0
+offset_right = 538.0
+offset_bottom = 370.0
+level = "res://Scenes/track1.tscn"
+
+[node name="LevelButton2" parent="." instance=ExtResource("1_6ru6p")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = -44.0
+offset_right = 130.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "2
+"
+level = "res://Scenes/track2.tscn"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 64.0
+offset_right = 863.0
+offset_bottom = 187.0
+theme_override_colors/font_shadow_color = Color(0.909804, 0.415686, 0.0901961, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 30
+theme_override_font_sizes/font_size = 89
+text = "Track Select"
+horizontal_alignment = 1
+vertical_alignment = 1
