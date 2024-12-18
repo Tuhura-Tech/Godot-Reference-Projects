@@ -2,10 +2,9 @@ extends CharacterBody2D
 
 
 const ACC = 25.0
-const MAX = 750
-const DEC = 5
-var motion = 0
-
+const MAX = 750.0
+const DEC = 5.0
+var motion = 0.0
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -14,9 +13,9 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("Left2", "Right2")
 	if direction:
-		rotation += 2 * direction * delta
-		
-	var moving := Input.get_axis("Forward2", "Back2")
+		rotate(2.0 * direction * delta)
+
+	var moving := Input.get_axis("Forward2", "Backward2")
 	if moving:
 		motion += ACC * moving
 		if motion > MAX:
@@ -26,8 +25,8 @@ func _physics_process(delta: float) -> void:
 
 
 	velocity = lerp(motion * transform.y, Vector2.ZERO, 0.2)
-		
-	
+
+
 	if velocity != Vector2.ZERO:
 		if motion > 0:
 			motion = max(motion - DEC, -ACC)
