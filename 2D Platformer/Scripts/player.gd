@@ -32,7 +32,7 @@ func _physics_process(delta: float) -> void:
 
 
 # Runs every frame, for anything non-physics like visual things
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if velocity.x > 0:
 		sprite_node.flip_h = false
 	elif velocity.x < 0:
