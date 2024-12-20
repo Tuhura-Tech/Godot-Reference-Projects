@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://du0qnhuy7rx5b"]
 
-[ext_resource type="StyleBox" path="res://level_button_hover.tres" id="1_7crvc"]
+[ext_resource type="StyleBox" uid="uid://c8up3nqog5xjc" path="res://level_button_hover.tres" id="1_7crvc"]
 [ext_resource type="Script" path="res://Scripts/level_button.gd" id="1_65x2c"]
-[ext_resource type="StyleBox" path="res://level_button.tres" id="1_a8jxs"]
+[ext_resource type="StyleBox" uid="uid://c2ayi326k5mdf" path="res://level_button.tres" id="1_a8jxs"]
 
 [node name="LevelButton" type="Button"]
 offset_right = 90.0

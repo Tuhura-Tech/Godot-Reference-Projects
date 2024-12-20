@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://2srue4nbpm41"]
+[gd_scene load_steps=6 format=3 uid="uid://2srue4nbpm41"]
 
 [ext_resource type="PackedScene" uid="uid://du0qnhuy7rx5b" path="res://Scenes/level_button.tscn" id="1_6ru6p"]
 [ext_resource type="Texture2D" uid="uid://cejr1dv24iep2" path="res://bg.png" id="1_kasvw"]
 [ext_resource type="Texture2D" uid="uid://xbsshi2jdh7f" path="res://kenney_racing-pack/PNG/Motorcycles/motorcycle_red.png" id="2_ieu10"]
+[ext_resource type="PackedScene" uid="uid://c44is6pob0jmu" path="res://Scenes/track1.tscn" id="4_88gh5"]
+[ext_resource type="PackedScene" uid="uid://crs3yrqmm6wg4" path="res://Scenes/track2.tscn" id="5_k0idt"]
 
 [node name="TrackSelect" type="Control"]
 layout_mode = 3
@@ -30,15 +32,15 @@ rotation = -0.593761
 scale = Vector2(2.14386, 2.14386)
 texture = ExtResource("2_ieu10")
 
-[node name="LevelButton3" parent="." instance=ExtResource("1_6ru6p")]
+[node name="Level1" parent="." instance=ExtResource("1_6ru6p")]
 layout_mode = 0
 offset_left = 448.0
 offset_top = 280.0
 offset_right = 538.0
 offset_bottom = 370.0
-level = "res://Scenes/track1.tscn"
+level = ExtResource("4_88gh5")
 
-[node name="LevelButton2" parent="." instance=ExtResource("1_6ru6p")]
+[node name="Level2" parent="." instance=ExtResource("1_6ru6p")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -53,9 +55,9 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "2
 "
-level = "res://Scenes/track2.tscn"
+level = ExtResource("5_k0idt")
 
-[node name="Label" type="Label" parent="."]
+[node name="Title" type="Label" parent="."]
 layout_mode = 0
 offset_left = 304.0
 offset_top = 64.0

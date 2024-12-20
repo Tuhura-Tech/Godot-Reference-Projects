@@ -11,9 +11,9 @@ size = Vector2(68, 68)
 motion_mode = 1
 script = ExtResource("1_clg5u")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_12nvs")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(68, 68)
 texture = SubResource("PlaceholderTexture2D_aq76w")

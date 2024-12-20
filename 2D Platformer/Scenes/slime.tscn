@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://bx20vm61he3sd"]
 
 [ext_resource type="Script" path="res://Scripts/slime.gd" id="1_6a7ju"]
-[ext_resource type="Texture2D" uid="uid://cxg6aamabuct6" path="res://brackeys_platformer_assets/brackeys_platformer_assets/sprites/slime_green.png" id="2_51u2s"]
+[ext_resource type="Texture2D" uid="uid://cxg6aamabuct6" path="res://brackeys_platformer_assets (2)/sprites/slime_green.png" id="2_51u2s"]
 [ext_resource type="PackedScene" uid="uid://donm6tqr60qn5" path="res://Scenes/killzone.tscn" id="3_y72t5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4i0ue"]
@@ -116,25 +116,25 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7px1"]
-size = Vector2(8, 12)
+size = Vector2(10, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oc63s"]
-size = Vector2(8, 11)
+size = Vector2(8, 13)
 
-[node name="slime" type="CharacterBody2D"]
+[node name="Slime" type="CharacterBody2D"]
 script = ExtResource("1_6a7ju")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_y12q6")
 animation = &"idle"
 autoplay = "idle"
 frame = 5
 frame_progress = 0.801915
 
-[node name="killzone" parent="." instance=ExtResource("3_y72t5")]
+[node name="Killzone" parent="." instance=ExtResource("3_y72t5")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
-position = Vector2(0, 5)
+[node name="Collider" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_y7px1")
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
@@ -145,6 +145,6 @@ target_position = Vector2(10, 0)
 position = Vector2(0, 5)
 target_position = Vector2(-10, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4.5)
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5.5)
 shape = SubResource("RectangleShape2D_oc63s")

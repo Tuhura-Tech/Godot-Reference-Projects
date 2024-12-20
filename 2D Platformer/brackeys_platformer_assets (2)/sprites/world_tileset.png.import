@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxg6aamabuct6"
-path="res://.godot/imported/slime_green.png-b125044bb585a4687833b38e91ee628e.ctex"
+uid="uid://bbxvmbq7rurl4"
+path="res://.godot/imported/world_tileset.png-517d2fcd6b851b843d7ef27c41776e65.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://brackeys_platformer_assets/brackeys_platformer_assets/sprites/slime_green.png"
-dest_files=["res://.godot/imported/slime_green.png-b125044bb585a4687833b38e91ee628e.ctex"]
+source_file="res://brackeys_platformer_assets (2)/sprites/world_tileset.png"
+dest_files=["res://.godot/imported/world_tileset.png-517d2fcd6b851b843d7ef27c41776e65.ctex"]
 
 [params]
 
