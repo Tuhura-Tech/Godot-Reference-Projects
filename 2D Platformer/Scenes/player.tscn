@@ -285,7 +285,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5gvwo"]
 radius = 4.0
-height = 16.0
+height = 14.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -297,7 +297,7 @@ animation = &"roll"
 autoplay = "idle"
 
 [node name="Collider" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3)
+position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_5gvwo")
 
 [node name="Camera" type="Camera2D" parent="."]
