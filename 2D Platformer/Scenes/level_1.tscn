@@ -332,7 +332,7 @@ tile_set = SubResource("TileSet_q2krq")
 [node name="Killzone" parent="." instance=ExtResource("3_l2n27")]
 position = Vector2(0, 80)
 
-[node name="Collider2" type="CollisionShape2D" parent="Killzone"]
+[node name="Collider" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("WorldBoundaryShape2D_28p4e")
 
 [node name="Slime" parent="." instance=ExtResource("4_h6vge")]
