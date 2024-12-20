@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://n55uqs7y6x85"]
+[gd_scene load_steps=12 format=4 uid="uid://n55uqs7y6x85"]
 
 [ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_aw1e6"]
 [ext_resource type="PackedScene" uid="uid://c8ypddyvt71jy" path="res://Scenes/player.tscn" id="1_da2rl"]
@@ -311,9 +311,6 @@ texture = ExtResource("1_rmc1i")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_18ni4")
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hrid0"]
-distance = -28.0
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fb6i8"]
 size = Vector2(1, 59)
 
@@ -334,10 +331,7 @@ tile_set = SubResource("TileSet_q2krq")
 zoom = Vector2(4, 4)
 
 [node name="killzone" parent="." instance=ExtResource("3_l2n27")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
-position = Vector2(-63, 140)
-shape = SubResource("WorldBoundaryShape2D_hrid0")
+position = Vector2(0, 80)
 
 [node name="slime" parent="." instance=ExtResource("4_h6vge")]
 position = Vector2(223, -28)
