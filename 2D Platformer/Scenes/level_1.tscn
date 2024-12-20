@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_aw1e6"]
 [ext_resource type="PackedScene" uid="uid://c8ypddyvt71jy" path="res://Scenes/player.tscn" id="1_da2rl"]
-[ext_resource type="Texture2D" uid="uid://bbxvmbq7rurl4" path="res://brackeys_platformer_assets/brackeys_platformer_assets/sprites/world_tileset.png" id="1_rmc1i"]
+[ext_resource type="Texture2D" uid="uid://bbxvmbq7rurl4" path="res://brackeys_platformer_assets (2)/sprites/world_tileset.png" id="1_rmc1i"]
 [ext_resource type="PackedScene" uid="uid://donm6tqr60qn5" path="res://Scenes/killzone.tscn" id="3_l2n27"]
 [ext_resource type="PackedScene" uid="uid://bx20vm61he3sd" path="res://Scenes/slime.tscn" id="4_h6vge"]
 [ext_resource type="PackedScene" uid="uid://dlgwy4lj32f6n" path="res://Scenes/coin.tscn" id="5_7jayt"]
